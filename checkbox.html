@@ -1,0 +1,55 @@
+<link rel="import" href="./polymer/polymer.html">
+<!-- <link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="d2l-button-shared-styles.html"> -->
+<!-- <link rel="import" href="d2l-radio-behavior.html"> -->
+<script>
+
+window.CheckBox = window.CheckBox || {};
+window.CheckBox.Behavior = window.CheckBox.Behavior || {};
+
+/** @polymerBehavior */
+window.CheckBox.Behavior = {
+	properties: {
+		disabled: {
+			type: Boolean,
+			reflectToAttribute: true
+		},
+    checkboxid:{
+      type: String,
+			reflectToAttribute: true
+    },
+		name: {
+			type: String,
+			reflectToAttribute: true
+		},
+    label: {
+			type: String,
+			reflectToAttribute: true
+		},
+	}
+
+};
+
+</script>
+
+<dom-module id="d2l-check">
+	<template strip-whitespace>
+		<style>
+			:host {
+				display: inline-block;
+			}
+		</style>
+		<input type = "checkbox"
+			disabled$=[[disabled]]
+			name$=[[name]]
+      id$=[[checkboxid]]
+		/>
+    <label for$=[[checkboxid]]>[[label]]</label>
+	</template>
+	<script>
+		Polymer({
+			is: 'd2l-check',
+			behaviors: [window.CheckBox.Behavior]
+		});
+	</script>
+</dom-module>
